@@ -1,12 +1,3 @@
-Bubble Sort Algorithm Time Complexities:
-
-- Best Case: O(n)
-  The best-case scenario occurs when the array is already sorted. In this case, Bubble Sort makes a single pass through the array without any swaps, resulting in linear time complexity.
-
-- Average Case: O(n^2)
-  The average-case time complexity is quadratic. Bubble Sort compares and swaps elements in a nested loop, leading to n^2 comparisons and potential swaps.
-
-- Worst Case: O(n^2)
-  The worst-case scenario occurs when the array is sorted in reverse order. Bubble Sort will make the maximum number of comparisons and swaps, resulting in quadratic time complexity.
-
-Bubble Sort is generally not the most efficient sorting algorithm for large datasets due to its quadratic time complexity. It is often used for educational purposes or for small datasets where its simplicity can be advantageous.
+O(n)
+O(n^2)
+O(n^2)
