@@ -2,8 +2,8 @@
 
 /**
  * insertion_sort_list - Sorts a doubly linked list of integers
- *                     in ascending order using the Insertion sort algorithm.
- * @list: A pointer to a pointer to the head of the list.
+ *                      in ascending order using the Insertion sort algorithm.
+ * @list: Double pointer to the head of the list.
  */
 void insertion_sort_list(listint_t **list)
 {
@@ -13,36 +13,25 @@ void insertion_sort_list(listint_t **list)
 		return;
 
 	current = (*list)->next;
-
 	while (current)
 	{
 		prev = current->prev;
-
-		while (prev && prev->n > current->n)
+		temp = current;
+		while (prev && prev->n > temp->n)
 		{
-			temp = current->next;
-
-			if (temp)
-				temp->prev = prev;
-
+			if (temp->next)
+				temp->next->prev = prev;
+			prev->next = temp->next;
+			temp->prev = prev->prev;
 			if (prev->prev)
-				prev->prev->next = current;
-			else
-				*list = current;
-
-			prev->next = temp;
-			current->prev = prev;
-			current->next = prev;
-			prev->prev = current;
-
-			if (temp)
-				print_list(*list); /* Print the list after swapping */
-			else
-				print_list(*list);
-
+				prev->prev->next = temp;
+			prev->prev = temp;
+			temp->next = prev;
+			if (prev == *list)
+				*list = temp;
+			print_list(*list);
 			prev = current->prev;
 		}
-
 		current = current->next;
 	}
 }
